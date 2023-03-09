@@ -1,0 +1,59 @@
+Linux terminal (GitBash) commands
+
+1) Посмотреть где я									# pwd
+2) Создать папку									# mkdir qwer_1
+3) Зайти в папку									# cd qwer_1
+4) Создать 3 папки									# mkdir qwer_2 qwer_3 qwer_4
+5) Зайти в любоую папку									# cd qwer_2
+6) Создать 5 файлов (3 txt, 2 json)							# touch 1.txt 2.txt 3.txt 1.json 2.json
+7) Создать 3 папки									# mkdir folder_1 folder_2 folder_3
+8. Вывести список содержимого папки							# ls -la
+9) + Открыть любой txt файл								# vim 1.txt
+10) + написать туда что-нибудь, любой текст.						# I - insert 123123123 
+11) + сохранить и выйти.								# ESC, :wq
+12) Выйти из папки на уровень выше							# cd ..
+—											
+13) переместить любые 2 файла, которые вы создали, в любую другую папку.		# mv 1.txt qwer_2/1.txt; mv 2.txt qwer_2/2.txt			
+14) скопировать любые 2 файла, которые вы создали, в любую другую папку.		# cp qwer_2/1.txt qwer_3/1.txt; cp qwer_2/2.txt qwer_3/2.txt				
+15) Найти файл по имени									# find -name 3.txt
+16) просмотреть содержимое в реальном времени (команда grep) изучите как она работает.	# tail -f 1.txt
+17) вывести несколько первых строк из текстового файла					# head -n 1.txt
+18) вывести несколько последних строк из текстового файла				# tail -n 1.txt
+19) просмотреть содержимое длинного файла (команда less) изучите как она работает.	# less 1.txt
+20) вывести дату и время								# date
+=========
+
+Задание *
+1) Отправить http запрос на сервер.
+http://162.55.220.72:5005/terminal-hw-request		
+
+
+# Получен ответ:
+$ curl "http://162.55.220.72:5005/terminal-hw-request"
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   237  100   237    0     0   1244      0 --:--:-- --:--:-- --:--:--  1253{"
+Intro":"Hello!! This is your the first response from server","Tasks":{"Task_1":"
+Send the next URL in terminal: http://162.55.220.72:5005/get_method?name=(set_yo
+ur_String)&age=(set_your_number)","result":["Your_String","Your_number"]}}
+
+
+$ curl "http://162.55.220.72:5005/get_method?name=(Dmitry)&age=("26")"
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    20  100    20    0     0    128      0 --:--:-- --:--:-- --:--:--   129["(Dmitry)","(26)"]
+
+ 
+
+2) Написать скрипт который выполнит автоматически пункты 3, 4, 5, 6, 7, 8, 13
+
+touch script.txt          # Создаем файл, в котором будет скрипт
+vim script.txt 		  # Открываем файл, который создали	
+
+#!/bin/bash
+pwd; cd dir_3; mkdir 1 2 3; cd 1; touch 1.txt 2.txt 3.txt 1.json 2.json; mkdir f1 f2 f3; ls -la;
+mv 1.json f3/1.json; mv 2.json f3/2.json        #Через ; пишем то, что должен делать скрипт
+
+chmod +x ./script         # Делаем скрипт исполняемым
+
+./script.txt              # Запускаем скрипт
